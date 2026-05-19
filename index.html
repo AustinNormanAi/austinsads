@@ -1,0 +1,1716 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Austin Norman builds AI-assisted ecommerce growth systems for Shopify brands across ads, funnels, lifecycle revenue, and profit reporting.">
+  <meta property="og:title" content="Austin Norman | Ecommerce Growth Systems">
+  <meta property="og:description" content="The portfolio for an ecommerce operator building automated growth loops across Meta ads, Shopify funnels, Klaviyo, and net profit analytics.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://austinsads.com/">
+  <title>Austin Norman | Ecommerce Growth Systems</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #111313;
+      --muted: #56605d;
+      --line: #d9e1dd;
+      --paper: #f7f8f5;
+      --white: #ffffff;
+      --teal: #0c9c8c;
+      --teal-strong: #046f65;
+      --mint: #d7fff1;
+      --acid: #d5ff45;
+      --sun: #ffcf46;
+      --coral: #ff6b4a;
+      --blue: #4f8cff;
+      --shadow: 0 22px 60px rgba(17, 19, 19, 0.12);
+      --soft-shadow: 0 10px 30px rgba(17, 19, 19, 0.08);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    .proof-item,
+    .task-list li {
+      overflow-wrap: break-word;
+    }
+
+    body.locked {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+    }
+
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal), var(--acid), var(--coral));
+      transition: width 120ms linear;
+    }
+
+    .site-nav {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      z-index: 80;
+      width: min(var(--max), calc(100% - 32px));
+      transform: translateX(-50%);
+      border: 1px solid rgba(17, 19, 19, 0.1);
+      border-radius: var(--radius);
+      background: rgba(247, 248, 245, 0.88);
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 58px;
+      padding: 0 14px 0 18px;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 900;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--acid);
+      font-size: 0.82rem;
+      font-weight: 950;
+    }
+
+    .brand-lockup span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 12px;
+      border-radius: var(--radius);
+      color: #2e3734;
+      font-size: 0.92rem;
+      font-weight: 750;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .nav-links a.cta {
+      margin-left: 6px;
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    .menu-button {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .menu-button svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: auto;
+      padding: 106px 22px 46px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 14% 22%, rgba(12, 156, 140, 0.12), transparent 26%),
+        radial-gradient(circle at 84% 16%, rgba(255, 107, 74, 0.13), transparent 25%),
+        linear-gradient(135deg, #ffffff 0%, #f5f8f6 54%, #eef7f2 100%);
+    }
+
+    #systemCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.95;
+    }
+
+    .hero-noise {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.34;
+      background-image:
+        linear-gradient(rgba(17, 19, 19, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 19, 19, 0.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 82%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(var(--max), 100%);
+      min-width: 0;
+      margin: auto;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.98fr) minmax(340px, 0.72fr);
+      gap: 34px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      min-width: 0;
+    }
+
+    .hero-showcase {
+      display: grid;
+      gap: 14px;
+      align-self: center;
+      min-width: 0;
+    }
+
+    .offer-board {
+      overflow: hidden;
+      border: 1px solid rgba(17, 19, 19, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.84);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .offer-board-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .offer-board-head strong {
+      display: block;
+      font-size: 1.08rem;
+      font-weight: 950;
+    }
+
+    .offer-board-head span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .offer-status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 10px;
+      border-radius: var(--radius);
+      background: var(--acid);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .offer-board-body {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .offer-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid rgba(17, 19, 19, 0.09);
+      border-radius: var(--radius);
+      background: rgba(247, 248, 245, 0.78);
+    }
+
+    .offer-row span {
+      color: var(--teal-strong);
+      font-size: 0.74rem;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .offer-row strong {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.2;
+      font-weight: 950;
+    }
+
+    .offer-row em {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.3;
+      font-style: normal;
+      font-weight: 680;
+    }
+
+    .offer-output {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      padding: 0 14px 14px;
+    }
+
+    .offer-output div {
+      min-height: 72px;
+      padding: 10px;
+      border-radius: var(--radius);
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .offer-output strong {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 950;
+    }
+
+    .offer-output span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.25;
+      font-weight: 750;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 24px;
+      padding: 8px 10px;
+      border: 1px solid rgba(17, 19, 19, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.66);
+      color: #26302d;
+      font-size: 0.86rem;
+      font-weight: 850;
+      box-shadow: 0 8px 24px rgba(17, 19, 19, 0.06);
+      backdrop-filter: blur(16px);
+    }
+
+    .eyebrow-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 99px;
+      background: var(--teal);
+      box-shadow: 0 0 0 6px rgba(12, 156, 140, 0.12);
+    }
+
+    h1 {
+      max-width: 1020px;
+      margin: 0;
+      font-size: 4.55rem;
+      line-height: 0.96;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    .hero-subhead {
+      max-width: 780px;
+      margin: 28px 0 0;
+      color: #303a37;
+      font-size: 1.22rem;
+      line-height: 1.42;
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 18px;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 900;
+      box-shadow: 0 14px 32px rgba(17, 19, 19, 0.16);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(17, 19, 19, 0.19);
+    }
+
+    .button.secondary {
+      border-color: rgba(17, 19, 19, 0.14);
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--ink);
+      box-shadow: 0 10px 24px rgba(17, 19, 19, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .button svg {
+      width: 19px;
+      height: 19px;
+      stroke-width: 2.4;
+    }
+
+    section {
+      padding: 74px 22px;
+    }
+
+    .section-inner {
+      width: min(var(--max), 100%);
+      min-width: 0;
+      margin: 0 auto;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      margin: 0 0 14px;
+      color: var(--teal-strong);
+      font-size: 0.82rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 870px;
+      margin: 0;
+      font-size: 3.1rem;
+      line-height: 1.02;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    .section-lede {
+      max-width: 760px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 1.16rem;
+      line-height: 1.58;
+      font-weight: 620;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 42px;
+    }
+
+    .sticky-panel {
+      position: sticky;
+      top: 96px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .sticky-panel p {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.48;
+      font-weight: 650;
+    }
+
+    .scoreboard {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      min-height: 42px;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .score-row strong {
+      color: var(--acid);
+      font-size: 0.94rem;
+    }
+
+    .bar {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--acid));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 900ms cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .is-visible .bar span {
+      transform: scaleX(var(--value));
+    }
+
+    .score-row em {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.82rem;
+      font-style: normal;
+      font-weight: 850;
+    }
+
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .system-card {
+      position: relative;
+      min-height: 230px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 12px 36px rgba(17, 19, 19, 0.07);
+      overflow: hidden;
+    }
+
+    .system-card::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 0;
+      height: 4px;
+      background: var(--accent, var(--teal));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 600ms ease;
+    }
+
+    .system-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .system-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 18px;
+      border-radius: var(--radius);
+      background: #f0f4f2;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 950;
+    }
+
+    .system-card h3,
+    .loop-card h3,
+    .brand-group h3,
+    .case-panel h3,
+    .ship-card h3,
+    .contact-panel h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.15;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    .system-card p,
+    .loop-card p,
+    .case-panel p,
+    .ship-card p,
+    .contact-panel p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.55;
+      font-weight: 620;
+    }
+
+    .proof-band {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .block-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 38px;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 162px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      top: 34px;
+      right: -14px;
+      z-index: 2;
+      width: 18px;
+      height: 2px;
+      background: var(--teal);
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .flow-step span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 16px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--acid);
+      font-size: 0.82rem;
+      font-weight: 950;
+    }
+
+    .flow-step strong {
+      display: block;
+      font-size: 1.24rem;
+      line-height: 1.1;
+      font-weight: 950;
+    }
+
+    .flow-step p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.42;
+      font-weight: 650;
+    }
+
+    .brand-range {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.38fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(12, 156, 140, 0.08), rgba(255, 207, 70, 0.13)),
+        var(--paper);
+    }
+
+    .brand-range strong {
+      font-size: 1.04rem;
+      line-height: 1.26;
+      font-weight: 950;
+    }
+
+    .brand-range p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.45;
+      font-weight: 680;
+    }
+
+    .machine {
+      padding-bottom: 106px;
+    }
+
+    .loop-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 42px;
+    }
+
+    .loop-card {
+      position: relative;
+      min-height: 294px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 30px rgba(17, 19, 19, 0.07);
+    }
+
+    .loop-card::before {
+      content: attr(data-label);
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 7px 9px;
+      border-radius: var(--radius);
+      background: var(--label-bg, #eef7f2);
+      color: var(--label-color, var(--teal-strong));
+      font-size: 0.77rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 9px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mini-list li {
+      position: relative;
+      padding-left: 18px;
+      color: #303a37;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+
+    .mini-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.6em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 99px;
+      background: var(--accent, var(--teal));
+    }
+
+    .automation {
+      border-top: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(247, 248, 245, 0.96)),
+        repeating-linear-gradient(90deg, rgba(17, 19, 19, 0.04) 0, rgba(17, 19, 19, 0.04) 1px, transparent 1px, transparent 54px);
+    }
+
+    .automation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .automation-panel {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .automation-panel h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 0 0 20px;
+      font-size: 1.45rem;
+      font-weight: 950;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      font-size: 0.74rem;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .status-pill.guided {
+      background: var(--sun);
+      color: var(--ink);
+    }
+
+    .task-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .task-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px;
+      border: 1px solid rgba(17, 19, 19, 0.08);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: #303a37;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .task-list li svg {
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      color: var(--teal);
+      stroke-width: 2.5;
+    }
+
+    .cases {
+      background: #121414;
+      color: var(--white);
+    }
+
+    .cases .section-kicker {
+      color: var(--acid);
+    }
+
+    .cases .section-lede {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 42px;
+    }
+
+    .case-panel {
+      min-height: 316px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+    }
+
+    .case-panel p {
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .case-panel .mini-list li {
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .case-panel .mini-list li::before {
+      background: var(--acid);
+    }
+
+    .case-label {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 7px 9px;
+      border-radius: var(--radius);
+      background: rgba(213, 255, 69, 0.12);
+      color: var(--acid);
+      font-size: 0.78rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .ship {
+      background: var(--white);
+    }
+
+    .ship-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 42px;
+    }
+
+    .ship-card {
+      min-height: 218px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(17, 19, 19, 0.05);
+    }
+
+    .ship-icon {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 18px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--acid);
+    }
+
+    .ship-icon svg {
+      width: 21px;
+      height: 21px;
+      stroke-width: 2.4;
+    }
+
+    .contact {
+      padding-top: 86px;
+      padding-bottom: 86px;
+      background:
+        linear-gradient(135deg, rgba(12, 156, 140, 0.16), rgba(255, 207, 70, 0.2)),
+        var(--paper);
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: center;
+      padding: 34px;
+      border: 1px solid rgba(17, 19, 19, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .contact-panel h2 {
+      font-size: 3.25rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .contact-note {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .contact-note strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.12rem;
+      font-weight: 950;
+    }
+
+    .contact-note p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 680;
+    }
+
+    footer {
+      padding: 28px 22px;
+      border-top: 1px solid rgba(17, 19, 19, 0.12);
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        position: fixed;
+        top: 72px;
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid rgba(17, 19, 19, 0.12);
+        border-radius: var(--radius);
+        background: rgba(247, 248, 245, 0.96);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        justify-content: center;
+      }
+
+      .nav-links a.cta {
+        margin-left: 0;
+      }
+
+      .menu-button {
+        display: inline-flex;
+      }
+
+      h1 {
+        font-size: 3.55rem;
+      }
+
+      h2,
+      .contact-panel h2 {
+        font-size: 2.55rem;
+      }
+
+      .hero-subhead {
+        font-size: 1.16rem;
+      }
+
+      .hero-layout,
+      .brand-range {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-showcase {
+        max-width: 680px;
+      }
+
+      .split,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .sticky-panel {
+        position: relative;
+        top: auto;
+      }
+
+      .block-flow,
+      .ship-grid,
+      .case-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow-step::after {
+        display: none;
+      }
+
+      .loop-map,
+      .automation-grid,
+      .systems-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-nav {
+        top: 10px;
+        width: calc(100% - 20px);
+      }
+
+      .nav-inner {
+        padding-left: 12px;
+      }
+
+      .brand-lockup span:last-child {
+        max-width: 190px;
+      }
+
+      .hero {
+        padding: 104px 16px 44px;
+      }
+
+      .hero-inner {
+        width: 100%;
+        max-width: 338px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .hero-layout {
+        gap: 28px;
+      }
+
+      .hero-showcase {
+        gap: 10px;
+      }
+
+      .offer-board-head,
+      .offer-row {
+        grid-template-columns: 1fr;
+      }
+
+      .offer-board-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .offer-output {
+        grid-template-columns: 1fr;
+      }
+
+      .eyebrow {
+        max-width: 100%;
+        font-size: 0.78rem;
+      }
+
+      h1 {
+        max-width: 100%;
+        font-size: 2.35rem;
+        line-height: 1;
+      }
+
+      .hero-subhead {
+        max-width: 100%;
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .block-flow,
+      .brand-range,
+      .ship-grid,
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step {
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .flow-step::after {
+        display: none;
+      }
+
+      .proof-item:last-child {
+        grid-column: auto;
+      }
+
+      section {
+        padding: 68px 16px;
+      }
+
+      h2,
+      .contact-panel h2 {
+        font-size: 1.9rem;
+      }
+
+      .section-inner {
+        width: 100%;
+        max-width: 338px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .section-lede {
+        font-size: 1.04rem;
+      }
+
+      .sticky-panel,
+      .system-card,
+      .loop-card,
+      .automation-panel,
+      .case-panel,
+      .ship-card,
+      .contact-panel,
+      .contact-note {
+        padding: 18px;
+      }
+
+      .score-row {
+        grid-template-columns: 58px 1fr;
+      }
+
+      .score-row em {
+        grid-column: 1 / -1;
+      }
+
+      .automation-panel h3 {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      #systemCanvas {
+        opacity: 0.35;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand-lockup" href="#top" aria-label="Austin Norman home">
+        <span class="brand-mark">AN</span>
+        <span>Austin Norman</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#offers">Offers</a>
+        <a href="#systems">Systems</a>
+        <a href="#contact" class="cta">Work together</a>
+      </div>
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <canvas id="systemCanvas" aria-hidden="true"></canvas>
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow reveal"><span class="eyebrow-dot"></span> Ecommerce operator, builder, and growth systems guy</p>
+            <h1 class="reveal">I build and test the offers that make ads, funnels, and email actually scale.</h1>
+            <p class="hero-subhead reveal">
+              I am Austin. The offer comes first. Then I build the ads, landing pages, email, tracking, and weekly testing loop around the offer until the numbers tell us what to scale.
+            </p>
+            <div class="hero-actions reveal">
+              <a class="button" href="#offers">
+                See the offer system
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </a>
+              <a class="button secondary" href="#systems">How I grow brands</a>
+            </div>
+          </div>
+
+          <div class="hero-showcase reveal" aria-label="Offer testing board">
+            <div class="offer-board">
+              <div class="offer-board-head">
+                <div>
+                  <strong>Offer Testing Board</strong>
+                  <span>What wins becomes the ads, page, email, and next test.</span>
+                </div>
+                <div class="offer-status">Live loop</div>
+              </div>
+              <div class="offer-board-body">
+                <div class="offer-row">
+                  <span>Promise</span>
+                  <div>
+                    <strong>Make the result painfully clear.</strong>
+                    <em>What does the buyer get, how fast, and why should they care right now?</em>
+                  </div>
+                </div>
+                <div class="offer-row">
+                  <span>Stack</span>
+                  <div>
+                    <strong>Bundle the right reason to act.</strong>
+                    <em>Discount, bonus, quiz path, subscription, guarantee, education, or urgency.</em>
+                  </div>
+                </div>
+                <div class="offer-row">
+                  <span>Proof</span>
+                  <div>
+                    <strong>Remove the buyer's biggest doubt.</strong>
+                    <em>Reviews, mechanism, comparison, demo, authority, or product education.</em>
+                  </div>
+                </div>
+              </div>
+              <div class="offer-output">
+                <div><strong>Ad batch</strong><span>Angles and creative built from the offer.</span></div>
+                <div><strong>Funnel page</strong><span>Quiz, advertorial, listicle, PDP, or offer page.</span></div>
+                <div><strong>Email flow</strong><span>Education, objection handling, winback, and LTV.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="offers" class="proof-band">
+      <div class="section-inner">
+        <p class="section-kicker reveal">Offer testing system</p>
+        <h2 class="reveal">The whole growth system starts as simple blocks I can build, launch, and improve.</h2>
+        <p class="section-lede reveal">
+          I do not start with "more ads." I start with the offer. Then every ad, page, email, and data loop has one job: prove what the market wants and push the brand closer to profitable scale.
+        </p>
+
+        <div class="block-flow reveal" aria-label="Offer system flow">
+          <div class="flow-step">
+            <span>01</span>
+            <strong>Offer</strong>
+            <p>Buyer pain, promise, mechanism, stack, proof, urgency, guarantee, and margin reality.</p>
+          </div>
+          <div class="flow-step">
+            <span>02</span>
+            <strong>Ads</strong>
+            <p>Creative batches built to test the offer from multiple buyer angles.</p>
+          </div>
+          <div class="flow-step">
+            <span>03</span>
+            <strong>Page</strong>
+            <p>Quiz, advertorial, listicle, PDP, or landing page matched to buyer awareness.</p>
+          </div>
+          <div class="flow-step">
+            <span>04</span>
+            <strong>Email</strong>
+            <p>Education, objection handling, winbacks, retention, and LTV.</p>
+          </div>
+          <div class="flow-step">
+            <span>05</span>
+            <strong>Data</strong>
+            <p>Meta naming, Shopify behavior, funnel signals, and next-test decisions.</p>
+          </div>
+        </div>
+
+        <div class="brand-range reveal">
+          <strong>Built across apparel, supplements, skincare, pets, automotive, and software.</strong>
+          <p>Nfinity, Cino, Shiraleah, Hikerkind, Buffalo Jackson, The Sporting Gent, Southern String Hats, GLDN PNT, IBD Assist, Young Again, The Natural, Bodyboom, Vibit, Carmaspeed, Private Label MFG, Red Drop, Small Pet Select, Odyssey.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="systems">
+      <div class="section-inner">
+        <p class="section-kicker reveal">How I create leverage</p>
+        <h2 class="reveal">Higher-profit growth comes from building around the right offer.</h2>
+        <p class="section-lede reveal">
+          I am not here to make isolated assets. I build the connected tests that decide what deserves more spend, what needs to be fixed, and what should become the next offer.
+        </p>
+
+        <div class="split">
+          <aside class="sticky-panel reveal">
+            <h3>The offer is the center.</h3>
+            <p>Net profit is the scoreboard. CPA, AOV, and LTV tell us whether the offer, page, ads, and follow-up are doing their job.</p>
+            <div class="scoreboard" aria-label="Growth levers">
+              <div class="score-row">
+                <strong>CPA</strong>
+                <div class="bar" aria-hidden="true"><span style="--value: .74"></span></div>
+                <em>Acquire smarter</em>
+              </div>
+              <div class="score-row">
+                <strong>AOV</strong>
+                <div class="bar" aria-hidden="true"><span style="--value: .64"></span></div>
+                <em>Monetize intent</em>
+              </div>
+              <div class="score-row">
+                <strong>LTV</strong>
+                <div class="bar" aria-hidden="true"><span style="--value: .84"></span></div>
+                <em>Compound trust</em>
+              </div>
+              <div class="score-row">
+                <strong>Profit</strong>
+                <div class="bar" aria-hidden="true"><span style="--value: .92"></span></div>
+                <em>Scale what works</em>
+              </div>
+            </div>
+          </aside>
+
+          <div class="systems-grid">
+            <article class="system-card reveal" style="--accent: var(--teal)">
+              <span class="system-number">01</span>
+              <h3>Offer intelligence</h3>
+              <p>Pull apart what the market is already telling us so the next offer is based on live buyer behavior, not random guessing.</p>
+              <ul class="mini-list">
+                <li>Buyer pain and desire mapping</li>
+                <li>Winner and drop-off diagnosis</li>
+                <li>Margin and AOV reality checks</li>
+              </ul>
+            </article>
+            <article class="system-card reveal" style="--accent: var(--coral)">
+              <span class="system-number">02</span>
+              <h3>Offer-to-ad engine</h3>
+              <p>Turn the offer into launch-ready ad batches that test the promise, proof, mechanism, urgency, and buyer awareness level.</p>
+              <ul class="mini-list">
+                <li>Ready-to-launch batches</li>
+                <li>Big-swing style exploration</li>
+                <li>Meta naming and data feedback</li>
+              </ul>
+            </article>
+            <article class="system-card reveal" style="--accent: var(--sun)">
+              <span class="system-number">03</span>
+              <h3>Offer-to-page system</h3>
+              <p>Build the page type that the offer actually needs: quiz, advertorial, listicle, PDP, bundle page, or direct landing page.</p>
+              <ul class="mini-list">
+                <li>Awareness-based page paths</li>
+                <li>Offer and bundle tests</li>
+                <li>Objection and proof blocks</li>
+              </ul>
+            </article>
+            <article class="system-card reveal" style="--accent: var(--blue)">
+              <span class="system-number">04</span>
+              <h3>Offer-to-LTV system</h3>
+              <p>Use email, education, winbacks, subscriptions, and retention offers to make the first purchase worth more over time.</p>
+              <ul class="mini-list">
+                <li>Lead and buyer education</li>
+                <li>6-12 month nurture systems</li>
+                <li>Subscription and replenishment logic</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="section-inner">
+        <div class="contact-panel reveal">
+          <div>
+            <p class="section-kicker">Work together</p>
+            <h2>Bring me the brand. I will tell you exactly what I would build first.</h2>
+            <p>
+              The first conversation is simple: where is profit leaking, what is the fastest fix, and what system should exist so the brand keeps getting smarter after I leave the call.
+            </p>
+            <div class="contact-actions">
+              <a class="button" href="mailto:a@austinsads.com?subject=Shopify%20growth%20systems">
+                Start the conversation
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </a>
+              <a class="button secondary" href="#offers">See the offer blocks</a>
+            </div>
+          </div>
+          <div class="contact-note">
+            <strong>What I want to see first</strong>
+            <p>Store URL, Meta account structure, current CPA/AOV/LTV, margin reality, best sellers, email revenue split, and the manual work your team keeps doing every week.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Austin Norman. Ecommerce growth systems.</span>
+      <a href="https://austinsads.com/">austinsads.com</a>
+    </div>
+  </footer>
+
+  <script>
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const progressBar = document.getElementById("progressBar");
+    const navLinks = document.getElementById("navLinks");
+    const menuButton = document.getElementById("menuButton");
+    const year = document.getElementById("year");
+    year.textContent = new Date().getFullYear();
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      document.body.classList.toggle("locked", isOpen);
+    });
+
+    navLinks.addEventListener("click", (event) => {
+      const link = event.target.closest("a");
+      if (link) {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("locked");
+      }
+    });
+
+    document.querySelectorAll("a[href^='#']").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const id = link.getAttribute("href");
+        const target = document.querySelector(id);
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        history.pushState(null, "", id);
+      });
+    });
+
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progressBar.style.width = `${progress}%`;
+    };
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal, .sticky-panel").forEach((item) => revealObserver.observe(item));
+
+    const sections = [...document.querySelectorAll("section[id]")];
+    const navAnchors = [...document.querySelectorAll(".nav-links a[href^='#']")];
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navAnchors.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    const canvas = document.getElementById("systemCanvas");
+    const ctx = canvas.getContext("2d");
+    let width = 0;
+    let height = 0;
+    let nodes = [];
+    let frame = 0;
+
+    const palette = ["#0c9c8c", "#ff6b4a", "#ffcf46", "#4f8cff", "#111313"];
+
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = canvas.offsetWidth;
+      height = canvas.offsetHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = width < 700 ? 30 : 54;
+      nodes = Array.from({ length: count }, (_, index) => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: (Math.random() - 0.5) * 0.22,
+        r: index % 7 === 0 ? 4.8 : 2.8,
+        c: palette[index % palette.length]
+      }));
+    }
+
+    function drawCanvas() {
+      frame += 1;
+      ctx.clearRect(0, 0, width, height);
+
+      const center = { x: width * 0.68, y: height * 0.48 };
+      ctx.save();
+      ctx.globalAlpha = 0.08;
+      ctx.fillStyle = "#0c9c8c";
+      ctx.beginPath();
+      ctx.arc(center.x, center.y, width < 700 ? 120 : 220, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      nodes.forEach((node) => {
+        if (!reduceMotion) {
+          node.x += node.vx;
+          node.y += node.vy;
+        }
+        if (node.x < -20) node.x = width + 20;
+        if (node.x > width + 20) node.x = -20;
+        if (node.y < -20) node.y = height + 20;
+        if (node.y > height + 20) node.y = -20;
+      });
+
+      for (let i = 0; i < nodes.length; i += 1) {
+        for (let j = i + 1; j < nodes.length; j += 1) {
+          const a = nodes[i];
+          const b = nodes[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const maxDistance = width < 700 ? 118 : 162;
+          if (distance < maxDistance) {
+            ctx.globalAlpha = (1 - distance / maxDistance) * 0.18;
+            ctx.strokeStyle = "#111313";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      nodes.forEach((node, index) => {
+        const pulse = reduceMotion ? 0 : Math.sin((frame + index * 12) / 42) * 0.8;
+        ctx.globalAlpha = 0.28;
+        ctx.fillStyle = node.c;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.r + 7 + pulse, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.globalAlpha = 0.88;
+        ctx.fillStyle = node.c;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      ctx.globalAlpha = 1;
+      if (!reduceMotion) requestAnimationFrame(drawCanvas);
+    }
+
+    resizeCanvas();
+    drawCanvas();
+    window.addEventListener("resize", resizeCanvas);
+  </script>
+</body>
+</html>
